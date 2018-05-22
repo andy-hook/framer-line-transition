@@ -46,8 +46,10 @@ homeShowGradient = () ->
 homeNavbar.states =
 	hidden:
 		y: Align.center(-100)
+		opacity: 0
 	visible:
 		y: Align.center
+		opacity: 1
 		
 homeShowNavbar = () ->
 	homeNavbar.stateSwitch 'hidden'
@@ -59,9 +61,11 @@ for headline, i in homeHeadlines
 		initial:
 			x: Align.left
 			y: Align.top
+			opacity: 1
 		outBottom:
 			x: Align.left
 			y: Align.top(100)
+			opacity: 0
 
 homeShowHeadlines = () ->
 	for headline, i in homeHeadlines
@@ -74,9 +78,11 @@ for thumbnail, i in homeThumbnails
 		initial:
 			x: Align.left
 			y: Align.top
+			opacity: 1
 		outBottom:
 			x: Align.left
 			y: Align.top(500)
+			opacity: 0
 
 homeShowThumbnails = () ->
 	for thumbnail, i in homeThumbnails
@@ -88,8 +94,10 @@ for number, i in yearNumbers
 	number.states =
 		initial:
 			y: Align.top
+			opacity: 1
 		outBottom:
 			y: Align.top(200)
+			opacity: 0
 			
 
 homeShowNumbers = () ->
@@ -190,8 +198,16 @@ projectImage.states =
 hideProjectRight = () ->
 	projectContents.animate 'skewRight'
 
+showProjectRight = () ->
+	projectContents.stateSwitch 'skewLeft'
+	projectContents.animate 'initial'
+
 hideProjectLeft = () ->
 	projectContents.animate 'skewLeft'
+	
+showProjectLeft = () ->
+	projectContents.stateSwitch 'skewRight'
+	projectContents.animate 'initial'
 	
 projectReset = () ->
 	project.sendToBack()
@@ -263,19 +279,19 @@ for i in sliceArray
 		backgroundColor: 'transparent'
 		borderWidth: 0
 	
-	slice.clip = true
-	
 	sliceInner = new Layer
 		height: slice.height
 		width: slice.width
 		
-	sliceInner.states =
+	slice.states =
 		right:
 			x: slice.width
 		left:
 			x: -slice.width
 		show:
 			x: 0
+	
+	slice.stateSwitch 'right'
 		
 	slice.addChild(sliceInner)
 	
@@ -285,7 +301,6 @@ for i in sliceArray
 	sliceInner.y = Align.center
 	
 	sliceInnerArray.push sliceInner
-	sliceInner.stateSwitch 'right'
 	
 	sliceElArray.push slice
 
@@ -329,12 +344,13 @@ animateSlices = (dir, state, contrast, cb) ->
 		overlay.animate 'hidden'
 	
 	for itemIndex, i in shuffledOrder
-		item = sliceInnerArray[itemIndex]
+		itemOuter = sliceElArray[itemIndex]
+		itemInner = sliceInnerArray[itemIndex]
 		
 		if contrast is 'dark'
-			item.backgroundColor = '#1B1C26'
+			itemInner.backgroundColor = '#1B1C26'
 		else
-			item.backgroundColor = '#FBFCFC'
+			itemInner.backgroundColor = '#FBFCFC'
 		
 		slideTime = i / 10 + .3
 		kickoffDelay = i / 20
@@ -343,25 +359,25 @@ animateSlices = (dir, state, contrast, cb) ->
 			time: slideTime
 			delay: kickoffDelay
 		
-		rotateSlice(item, slideTime, dir)
+		rotateSlice(itemInner, slideTime, dir)
 		
 		if state is 'hide'
-			item.stateSwitch 'show'
+			itemOuter.stateSwitch 'show'
 			
 			if dir is 'left'
-				item.animate 'left',
+				itemOuter.animate 'left',
 					animationOptions = animationOpts
 			else if dir is 'right'
-				item.animate 'right',
+				itemOuter.animate 'right',
 					animationOptions = animationOpts
 		
 		if state is 'show'
 			if dir is 'left'
-				item.stateSwitch 'right'
+				itemOuter.stateSwitch 'right'
 			else if dir is 'right'
-				item.stateSwitch 'left'
+				itemOuter.stateSwitch 'left'
 			
-			item.animate 'show',
+			itemOuter.animate 'show',
 				animationOptions = animationOpts
 		
 # 		Run callback after last slice has completed animation
@@ -417,8 +433,10 @@ nextProject.on Events.MouseDown, ->
 	animateSlices('left', 'show', 'dark', () ->
 		projectReset()
 		
-		animateSlices('left', 'show', 'light', () ->
-			showProject()
-		)
+		showProjectLeft()
+		showProject()
+		animateSlices('left', 'hide', 'dark')
+		
+		
 	
 	)
