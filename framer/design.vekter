@@ -5405,7 +5405,7 @@
 
                             ],
                             "fillColor" : "rgba(0, 170, 255, 0.5)",
-                            "fillEnabled" : true,
+                            "fillEnabled" : false,
                             "fillGradient" : {
                               "__class" : "LinearGradient",
                               "alpha" : 1,
@@ -5641,7 +5641,7 @@
 
                             ],
                             "fillColor" : "rgba(0, 170, 255, 0.5)",
-                            "fillEnabled" : true,
+                            "fillEnabled" : false,
                             "fillGradient" : {
                               "__class" : "LinearGradient",
                               "alpha" : 1,
