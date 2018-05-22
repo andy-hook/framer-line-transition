@@ -1,0 +1,21 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.29999999999999999,
+  "designModeSelected" : 0,
+  "cachedDeviceHeight" : 0,
+  "contentScale" : 1,
+  "cachedDeviceWidth" : 0,
+  "fullScreen" : false,
+  "deviceType" : "custom",
+  "sharedPrototype" : 0,
+  "projectId" : "DAB436EE-BA44-413A-AF5D-398A93BC116A",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "showBezel" : 0,
+  "foldedCodeRanges" : [
+    "{226, 930}",
+    "{1157, 288}",
+    "{1446, 3453}"
+  ],
+  "deviceScale" : "fit"
+}
