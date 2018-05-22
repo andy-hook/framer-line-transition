@@ -14,7 +14,9 @@ pageTransitioning = false
 home.x = 0
 home.y = 0
 
-homeItems = [homeNavbar, homeHeadline_1, homeHeadline_2, homeHeadline_3, homeThumbnail_1, homeThumbnail_2]
+homeHeadlines = [homeHeadline_1, homeHeadline_2, homeHeadline_3]
+homeThumbnails = [homeThumbnail_1, homeThumbnail_2]
+yearNumbers = [year_1, year_2, year_3, year_4]
 
 homeContents.states =
 	initial:
@@ -29,6 +31,17 @@ homeContents.states =
 homeContents.originX = .5
 homeContents.originY = .5
 
+# Gradient
+homeGradient.states =
+	visible:
+		opacity: 1;
+	hidden:
+		opacity: 0;
+
+homeShowGradient = () ->
+	homeGradient.stateSwitch 'hidden'
+	homeGradient.animate 'visible'
+
 # Navbar
 homeNavbar.states =
 	hidden:
@@ -36,22 +49,53 @@ homeNavbar.states =
 	visible:
 		y: Align.center
 		
+homeShowNavbar = () ->
+	homeNavbar.stateSwitch 'hidden'
+	homeNavbar.animate 'visible'
+		
 # Headlines
-for headline, i in [homeHeadline_1, homeHeadline_2, homeHeadline_3]
+for headline, i in homeHeadlines
 	headline.states =
 		initial:
 			x: Align.left
-		outLeft:
-			x: Align.left(-500)
+			y: Align.top
+		outBottom:
+			x: Align.left
+			y: Align.top(100)
+
+homeShowHeadlines = () ->
+	for headline, i in homeHeadlines
+		headline.stateSwitch 'outBottom'
+		headline.animate 'initial'
 
 # Thumbnails
-for thumbnail, i in [homeThumbnail_1, homeThumbnail_2]
+for thumbnail, i in homeThumbnails
 	thumbnail.states =
 		initial:
 			x: Align.left
-		outLeft:
-			x: Align.left(-500)
-		
+			y: Align.top
+		outBottom:
+			x: Align.left
+			y: Align.top(500)
+
+homeShowThumbnails = () ->
+	for thumbnail, i in homeThumbnails
+		thumbnail.stateSwitch 'outBottom'
+		thumbnail.animate 'initial'
+
+# Numbers
+for number, i in yearNumbers
+	number.states =
+		initial:
+			y: Align.top
+		outBottom:
+			y: Align.top(200)
+			
+
+homeShowNumbers = () ->
+	for number, i in yearNumbers
+		number.stateSwitch 'outBottom'
+		number.animate 'initial'
 		
 homeAnimateOut = () ->
 	homeContents.animate 'skewLeft'
@@ -60,13 +104,17 @@ showHome = () ->
 	home.bringToFront()
 	homeContents.stateSwitch 'initial'
 	
-homeReset = () ->
-	homeContents.stateSwitch 'initial'
+	homeShowGradient()
+	homeShowNavbar()
+	homeShowHeadlines()
+	homeShowThumbnails()
+	homeShowNumbers()
 
 # Project page
 project.x = 0
 project.y = 0
 
+# Page
 project.states =
 	visible:
 		opacity: 1
@@ -75,13 +123,95 @@ project.states =
 		
 project.stateSwitch 'hidden'
 
+# Contents
+projectContents.states =
+	initial:
+		skewX: 0
+		opacity: 1
+		x: Align.left
+	skewLeft:
+		skewX: 30 
+		x: Align.left(-1000)
+		opacity: 0
+	skewRight:
+		skewX: -30 
+		x: Align.right(1000)
+		opacity: 0
+
+# Navbar
+projectNavBar.states =
+	visible:
+		x: Align.left
+		y: Align.top
+		opacity: 1
+	hiddenAbove:
+		y: Align.top(-100)
+		opacity: 0
+		
+# Pagination bar
+paginationBar.states =
+	visible:
+		y: Align.top
+	hidden:
+		y: paginationBar.height
+	animationOptions:
+		delay: 1
+
+# Headline
+projectHeadline.states =
+	visible:
+		x: Align.left
+		y: Align.top
+		opacity: 1
+	hiddenBelow:
+		y: Align.top(100)
+		opacity: 0
+
+# Desc
+projectDesc.states =
+	visible:
+		x: Align.left
+		y: Align.top
+		opacity: 1
+	hiddenBelow:
+		y: Align.top(100)
+		opacity: 0
+
+# Image
+projectImage.states =
+	visible:
+		x: Align.left
+		y: Align.top
+		opacity: 1
+	hiddenBelow:
+		y: Align.top(100)
+		opacity: 0
+
 showProject = () ->
 	project.bringToFront()
 	project.stateSwitch 'visible'
 	
+	projectNavBar.animate 'visible'
+	projectHeadline.animate 'visible'
+	projectDesc.animate 'visible'
+	projectImage.animate 'visible'
+	paginationBar.animate 'visible'
+	
 hideProject = () ->
+	projectContents.animate 'skewRight'
+	
+projectReset = () ->
 	project.sendToBack()
 	project.stateSwitch 'hidden'
+	
+	projectContents.stateSwitch 'initial'
+	
+	projectNavBar.stateSwitch 'hiddenAbove'
+	projectHeadline.stateSwitch 'hiddenBelow'
+	projectDesc.stateSwitch 'hiddenBelow'
+	projectImage.stateSwitch 'hiddenBelow'
+	paginationBar.stateSwitch 'hidden'
+
 
 # Slice Animation
 
@@ -232,28 +362,23 @@ animateSlices = (dir, state, contrast, cb) ->
 			item.animate 'show',
 				animationOptions = animationOpts
 		
-# 		This is hacky and brittle but quick for now
+# 		Run callback after last slice has completed animation
 		do (i) ->
 			if i == (shuffledOrder.length - 1) and cb
 				Utils.delay slideTime + kickoffDelay, ->
-					print 'hello'
 					pageTransitioning = false
 					cb()
-				
-# 				item.on Events.AnimationEnd, ->
-# 					item.on Events.AnimationEnd, ->
-# 						item.off Events.AnimationEnd
-# 						pageTransitioning = false
-# 						cb()
 
 
 
-testButton.on Events.MouseDown, ->
+loadFirstProjectButton.on Events.MouseDown, ->
 	if pageTransitioning
 		return
 
 	if !slicesOpen
 		slicesOpen = true
+		
+		projectReset()
 		
 		animateSlices('left', 'show', 'light', showProject)
 		homeAnimateOut()
@@ -261,10 +386,9 @@ testButton.on Events.MouseDown, ->
 	else if slicesOpen
 		slicesOpen = false
 		
+		hideProject()
+		
 		animateSlices('right', 'show', 'dark', () ->
-			hideProject()
+			projectReset()
 			showHome()
 		)
-		
-		homeReset()
-		

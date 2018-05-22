@@ -1,21 +1,24 @@
 {
   "orientation" : 0,
   "updateDelay" : 0.29999999999999999,
-  "designModeSelected" : 0,
-  "cachedDeviceHeight" : 0,
+  "designModeSelected" : 1,
+  "cachedDeviceHeight" : 956,
   "contentScale" : 1,
-  "cachedDeviceWidth" : 0,
+  "cachedDeviceWidth" : 1700,
   "fullScreen" : false,
   "deviceType" : "custom",
   "sharedPrototype" : 0,
+  "propertyPanelToggleStates" : {
+
+  },
   "projectId" : "DAB436EE-BA44-413A-AF5D-398A93BC116A",
   "deviceOrientation" : 0,
   "selectedHand" : "",
   "showBezel" : 0,
   "foldedCodeRanges" : [
-    "{226, 930}",
-    "{1157, 288}",
-    "{1446, 3453}"
+    "{226, 1796}",
+    "{2023, 1641}",
+    "{3665, 3278}"
   ],
   "deviceScale" : "fit"
 }
