@@ -2583,6 +2583,11 @@
                                 {
                                   "length" : 34,
                                   "offset" : 0,
+                                  "style" : "ALIGN:left"
+                                },
+                                {
+                                  "length" : 34,
+                                  "offset" : 0,
                                   "style" : "LINEHEIGHT:1.15"
                                 },
                                 {
@@ -2619,11 +2624,6 @@
                                   "length" : 15,
                                   "offset" : 19,
                                   "style" : "COLOR:#7F8188"
-                                },
-                                {
-                                  "length" : 34,
-                                  "offset" : 0,
-                                  "style" : "ALIGN:left"
                                 }
                               ],
                               "key" : "5ftmf",

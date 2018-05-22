@@ -160,10 +160,11 @@ projectNavBar.states =
 paginationBar.states =
 	visible:
 		y: Align.top
+		animationOptions:
+			delay: .3
 	hidden:
 		y: paginationBar.height
-	animationOptions:
-		delay: .3
+	
 
 # Headline
 projectHeadline.states =
@@ -213,7 +214,6 @@ projectReset = () ->
 	project.sendToBack()
 	project.stateSwitch 'hidden'
 	projectContents.stateSwitch 'initial'
-	
 	projectNavBar.stateSwitch 'hiddenAbove'
 	projectHeadline.stateSwitch 'hiddenBelow'
 	projectDesc.stateSwitch 'hiddenBelow'
@@ -382,10 +382,11 @@ animateSlices = (dir, state, contrast, cb) ->
 		
 # 		Run callback after last slice has completed animation
 		do (i) ->
-			if i == (shuffledOrder.length - 1) and cb
+			if i == (shuffledOrder.length - 1)
+				pageTransitioning = false
 				Utils.delay slideTime + kickoffDelay, ->
-					pageTransitioning = false
-					cb()
+					if cb
+						cb()
 
 
 
@@ -418,10 +419,9 @@ prevProject.on Events.MouseDown, ->
 	animateSlices('right', 'show', 'dark', () ->
 		projectReset()
 		
-		animateSlices('right', 'show', 'light', () ->
-			showProject()
-		)
-	
+		showProject()
+		animateSlices('right', 'hide', 'dark')
+
 	)
 
 nextProject.on Events.MouseDown, ->
@@ -433,10 +433,7 @@ nextProject.on Events.MouseDown, ->
 	animateSlices('left', 'show', 'dark', () ->
 		projectReset()
 		
-		showProjectLeft()
 		showProject()
 		animateSlices('left', 'hide', 'dark')
-		
-		
-	
+
 	)
