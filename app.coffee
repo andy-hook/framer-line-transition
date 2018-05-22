@@ -155,7 +155,7 @@ paginationBar.states =
 	hidden:
 		y: paginationBar.height
 	animationOptions:
-		delay: 1
+		delay: .3
 
 # Headline
 projectHeadline.states =
@@ -186,7 +186,24 @@ projectImage.states =
 	hiddenBelow:
 		y: Align.top(100)
 		opacity: 0
+	
+hideProjectRight = () ->
+	projectContents.animate 'skewRight'
 
+hideProjectLeft = () ->
+	projectContents.animate 'skewLeft'
+	
+projectReset = () ->
+	project.sendToBack()
+	project.stateSwitch 'hidden'
+	projectContents.stateSwitch 'initial'
+	
+	projectNavBar.stateSwitch 'hiddenAbove'
+	projectHeadline.stateSwitch 'hiddenBelow'
+	projectDesc.stateSwitch 'hiddenBelow'
+	projectImage.stateSwitch 'hiddenBelow'
+	paginationBar.stateSwitch 'hidden'
+	
 showProject = () ->
 	project.bringToFront()
 	project.stateSwitch 'visible'
@@ -196,21 +213,6 @@ showProject = () ->
 	projectDesc.animate 'visible'
 	projectImage.animate 'visible'
 	paginationBar.animate 'visible'
-	
-hideProject = () ->
-	projectContents.animate 'skewRight'
-	
-projectReset = () ->
-	project.sendToBack()
-	project.stateSwitch 'hidden'
-	
-	projectContents.stateSwitch 'initial'
-	
-	projectNavBar.stateSwitch 'hiddenAbove'
-	projectHeadline.stateSwitch 'hiddenBelow'
-	projectDesc.stateSwitch 'hiddenBelow'
-	projectImage.stateSwitch 'hiddenBelow'
-	paginationBar.stateSwitch 'hidden'
 
 
 # Slice Animation
@@ -374,21 +376,49 @@ animateSlices = (dir, state, contrast, cb) ->
 loadFirstProjectButton.on Events.MouseDown, ->
 	if pageTransitioning
 		return
-
-	if !slicesOpen
-		slicesOpen = true
 		
+	projectReset()
+		
+	animateSlices('left', 'show', 'light', showProject)
+	homeAnimateOut()
+
+backToHomeButton.on Events.MouseDown, ->
+	if pageTransitioning
+		return
+		
+	hideProjectRight()
+		
+	animateSlices('right', 'show', 'dark', () ->
+		projectReset()
+		showHome()
+	)
+
+prevProject.on Events.MouseDown, ->
+	if pageTransitioning
+		return
+	
+	hideProjectRight()
+		
+	animateSlices('right', 'show', 'dark', () ->
 		projectReset()
 		
-		animateSlices('left', 'show', 'light', showProject)
-		homeAnimateOut()
-		
-	else if slicesOpen
-		slicesOpen = false
-		
-		hideProject()
-		
-		animateSlices('right', 'show', 'dark', () ->
-			projectReset()
-			showHome()
+		animateSlices('right', 'show', 'light', () ->
+			showProject()
 		)
+	
+	)
+
+nextProject.on Events.MouseDown, ->
+	if pageTransitioning
+		return
+	
+	hideProjectLeft()
+		
+	animateSlices('left', 'show', 'dark', () ->
+		projectReset()
+		
+		animateSlices('left', 'show', 'light', () ->
+			showProject()
+		)
+	
+	)

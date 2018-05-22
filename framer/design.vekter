@@ -2581,6 +2581,16 @@
                               ],
                               "inlineStyleRanges" : [
                                 {
+                                  "length" : 34,
+                                  "offset" : 0,
+                                  "style" : "ALIGN:left"
+                                },
+                                {
+                                  "length" : 34,
+                                  "offset" : 0,
+                                  "style" : "LINEHEIGHT:1.15"
+                                },
+                                {
                                   "length" : 18,
                                   "offset" : 0,
                                   "style" : "COLOR:#FBFCFC"
@@ -2614,16 +2624,6 @@
                                   "length" : 15,
                                   "offset" : 19,
                                   "style" : "COLOR:#7F8188"
-                                },
-                                {
-                                  "length" : 34,
-                                  "offset" : 0,
-                                  "style" : "ALIGN:left"
-                                },
-                                {
-                                  "length" : 34,
-                                  "offset" : 0,
-                                  "style" : "LINEHEIGHT:1.15"
                                 }
                               ],
                               "key" : "5ftmf",
@@ -4005,25 +4005,203 @@
                             "borderStyle" : "solid",
                             "borderTop" : 1,
                             "borderWidth" : 1,
-                            "bottom" : null,
+                            "bottom" : -63,
                             "boxShadows" : [
 
                             ],
                             "brightness" : 100,
                             "brightnessEnabled" : 0,
-                            "centerAnchorX" : 0.0132,
-                            "centerAnchorY" : 0.51515151515151514,
+                            "centerAnchorX" : 0.018800000000000001,
+                            "centerAnchorY" : 0.36363636363636365,
                             "children" : [
                               {
-                                "__class" : "PathNode",
+                                "__class" : "FrameNode",
                                 "aspectRatioLocked" : false,
+                                "blendingEnabled" : 0,
+                                "blendingMode" : "normal",
+                                "blur" : 12,
+                                "blurEnabled" : 0,
+                                "blurType" : "layer",
+                                "borderBottom" : 1,
+                                "borderColor" : "#222",
+                                "borderEnabled" : 0,
+                                "borderLeft" : 1,
+                                "borderPerSide" : false,
+                                "borderRight" : 1,
+                                "borderStyle" : "solid",
+                                "borderTop" : 1,
+                                "borderWidth" : 1,
+                                "bottom" : 73,
                                 "boxShadows" : [
 
                                 ],
+                                "brightness" : 100,
+                                "brightnessEnabled" : 0,
+                                "centerAnchorX" : 0.48585858585858588,
+                                "centerAnchorY" : 0.52976190476190477,
+                                "children" : [
+                                  {
+                                    "__class" : "PathNode",
+                                    "aspectRatioLocked" : false,
+                                    "boxShadows" : [
+
+                                    ],
+                                    "exportOptions" : [
+
+                                    ],
+                                    "fillColor" : "rgba(0,170,255,0.5)",
+                                    "fillEnabled" : false,
+                                    "fillGradient" : {
+                                      "__class" : "LinearGradient",
+                                      "alpha" : 1,
+                                      "angle" : 0,
+                                      "end" : "rgba(0,0,0,0)",
+                                      "start" : "black"
+                                    },
+                                    "fillImage" : null,
+                                    "fillImagePixelHeight" : null,
+                                    "fillImagePixelWidth" : null,
+                                    "fillImageResize" : "fill",
+                                    "fillType" : "color",
+                                    "height" : 12,
+                                    "id" : "jU9mZrpYO",
+                                    "lineCap" : "butt",
+                                    "lineJoin" : "miter",
+                                    "locked" : false,
+                                    "name" : null,
+                                    "opacity" : 1,
+                                    "parentid" : "gfEl69idX",
+                                    "pathClosed" : false,
+                                    "pathSegments" : [
+                                      {
+                                        "__class" : "PathSegment",
+                                        "handleInX" : 0,
+                                        "handleInY" : 0,
+                                        "handleMirroring" : "straight",
+                                        "handleOutX" : 0,
+                                        "handleOutY" : 0,
+                                        "radius" : 0,
+                                        "x" : 6,
+                                        "y" : 12
+                                      },
+                                      {
+                                        "__class" : "PathSegment",
+                                        "handleInX" : 0,
+                                        "handleInY" : 0,
+                                        "handleMirroring" : "straight",
+                                        "handleOutX" : 0,
+                                        "handleOutY" : 0,
+                                        "radius" : 0,
+                                        "x" : 0,
+                                        "y" : 6
+                                      },
+                                      {
+                                        "__class" : "PathSegment",
+                                        "handleInX" : 0,
+                                        "handleInY" : 0,
+                                        "handleMirroring" : "straight",
+                                        "handleOutX" : 0,
+                                        "handleOutY" : 0,
+                                        "radius" : 0,
+                                        "x" : 6,
+                                        "y" : 0
+                                      }
+                                    ],
+                                    "rotation" : 0,
+                                    "strokeAlignment" : "center",
+                                    "strokeColor" : "#30303B",
+                                    "strokeDashArray" : "0",
+                                    "strokeDashOffset" : 0,
+                                    "strokeEnabled" : 1,
+                                    "strokeMiterLimit" : 4,
+                                    "strokeWidth" : 2,
+                                    "targetName" : null,
+                                    "visible" : true,
+                                    "width" : 6,
+                                    "x" : 0,
+                                    "y" : 0
+                                  },
+                                  {
+                                    "__class" : "PathNode",
+                                    "aspectRatioLocked" : false,
+                                    "boxShadows" : [
+
+                                    ],
+                                    "exportOptions" : [
+
+                                    ],
+                                    "fillColor" : "rgba(0,170,255,0.5)",
+                                    "fillEnabled" : false,
+                                    "fillGradient" : {
+                                      "__class" : "LinearGradient",
+                                      "alpha" : 1,
+                                      "angle" : 0,
+                                      "end" : "rgba(0,0,0,0)",
+                                      "start" : "black"
+                                    },
+                                    "fillImage" : null,
+                                    "fillImagePixelHeight" : null,
+                                    "fillImagePixelWidth" : null,
+                                    "fillImageResize" : "fill",
+                                    "fillType" : "color",
+                                    "height" : 1,
+                                    "id" : "FK_Isa_nj",
+                                    "lineCap" : "square",
+                                    "lineJoin" : "miter",
+                                    "locked" : false,
+                                    "name" : null,
+                                    "opacity" : 1,
+                                    "parentid" : "gfEl69idX",
+                                    "pathClosed" : false,
+                                    "pathSegments" : [
+                                      {
+                                        "__class" : "PathSegment",
+                                        "handleInX" : 0,
+                                        "handleInY" : 0,
+                                        "handleMirroring" : "straight",
+                                        "handleOutX" : 0,
+                                        "handleOutY" : 0,
+                                        "radius" : 0,
+                                        "x" : 30,
+                                        "y" : 0
+                                      },
+                                      {
+                                        "__class" : "PathSegment",
+                                        "handleInX" : 0,
+                                        "handleInY" : 0,
+                                        "handleMirroring" : "straight",
+                                        "handleOutX" : 0,
+                                        "handleOutY" : 0,
+                                        "radius" : 0,
+                                        "x" : 0,
+                                        "y" : 0
+                                      }
+                                    ],
+                                    "rotation" : 0,
+                                    "strokeAlignment" : "center",
+                                    "strokeColor" : "#30303B",
+                                    "strokeDashArray" : "0",
+                                    "strokeDashOffset" : 0,
+                                    "strokeEnabled" : 1,
+                                    "strokeMiterLimit" : 4,
+                                    "strokeWidth" : 2,
+                                    "targetName" : null,
+                                    "visible" : true,
+                                    "width" : 30,
+                                    "x" : 0.5,
+                                    "y" : 6
+                                  }
+                                ],
+                                "clip" : false,
+                                "constraintsLocked" : false,
+                                "contrast" : 100,
+                                "contrastEnabled" : 0,
+                                "deviceType" : null,
+                                "exportIncludesBackground" : true,
                                 "exportOptions" : [
 
                                 ],
-                                "fillColor" : "rgba(0,170,255,0.5)",
+                                "fillColor" : "rgb(255, 255, 255)",
                                 "fillEnabled" : false,
                                 "fillGradient" : {
                                   "__class" : "LinearGradient",
@@ -4037,133 +4215,157 @@
                                 "fillImagePixelWidth" : null,
                                 "fillImageResize" : "fill",
                                 "fillType" : "color",
+                                "grayscale" : 0,
+                                "grayScaleEnabled" : 0,
                                 "height" : 12,
-                                "id" : "jU9mZrpYO",
-                                "lineCap" : "butt",
-                                "lineJoin" : "miter",
+                                "heightFactor" : null,
+                                "hueRotate" : 0,
+                                "hueRotateEnabled" : 0,
+                                "id" : "gfEl69idX",
+                                "intrinsicHeight" : null,
+                                "intrinsicWidth" : null,
+                                "invert" : 0,
+                                "invertEnabled" : 0,
+                                "left" : 225,
                                 "locked" : false,
-                                "name" : null,
-                                "opacity" : 1,
-                                "parentid" : "gfEl69idX",
-                                "pathClosed" : false,
-                                "pathSegments" : [
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 6,
-                                    "y" : 12
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 0,
-                                    "y" : 6
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 6,
-                                    "y" : 0
-                                  }
-                                ],
+                                "name" : "projectBack",
+                                "opacity" : 0.34999999999999998,
+                                "parentid" : "kicFD5Mmx",
+                                "radius" : 0,
+                                "radiusBottomLeft" : 0,
+                                "radiusBottomRight" : 0,
+                                "radiusIsRelative" : false,
+                                "radiusPerCorner" : false,
+                                "radiusTopLeft" : 0,
+                                "radiusTopRight" : 0,
+                                "right" : null,
                                 "rotation" : 0,
-                                "strokeAlignment" : "center",
-                                "strokeColor" : "#30303B",
-                                "strokeDashArray" : "0",
-                                "strokeDashOffset" : 0,
-                                "strokeEnabled" : 1,
-                                "strokeMiterLimit" : 4,
-                                "strokeWidth" : 2,
+                                "saturate" : 100,
+                                "saturateEnabled" : 0,
+                                "sepia" : 0,
+                                "sepiaEnabled" : 0,
                                 "targetName" : null,
+                                "top" : null,
                                 "visible" : true,
-                                "width" : 6,
-                                "x" : 0,
-                                "y" : 0
+                                "width" : 31,
+                                "widthFactor" : null
                               },
                               {
-                                "__class" : "PathNode",
-                                "aspectRatioLocked" : false,
-                                "boxShadows" : [
-
-                                ],
+                                "__class" : "TextNode",
+                                "autoSize" : true,
+                                "blendingEnabled" : 0,
+                                "blendingMode" : "normal",
+                                "blur" : 12,
+                                "blurEnabled" : 0,
+                                "blurType" : "layer",
+                                "bottom" : 63,
+                                "brightness" : 100,
+                                "brightnessEnabled" : 0,
+                                "centerAnchorX" : 0.65454545454545454,
+                                "centerAnchorY" : 0.5357142857142857,
+                                "constraintsLocked" : false,
+                                "contrast" : 100,
+                                "contrastEnabled" : 0,
+                                "editable" : false,
                                 "exportOptions" : [
 
                                 ],
-                                "fillColor" : "rgba(0,170,255,0.5)",
-                                "fillEnabled" : false,
-                                "fillGradient" : {
-                                  "__class" : "LinearGradient",
-                                  "alpha" : 1,
-                                  "angle" : 0,
-                                  "end" : "rgba(0,0,0,0)",
-                                  "start" : "black"
-                                },
-                                "fillImage" : null,
-                                "fillImagePixelHeight" : null,
-                                "fillImagePixelWidth" : null,
-                                "fillImageResize" : "fill",
-                                "fillType" : "color",
-                                "height" : 1,
-                                "id" : "FK_Isa_nj",
-                                "lineCap" : "square",
-                                "lineJoin" : "miter",
+                                "grayscale" : 0,
+                                "grayScaleEnabled" : 0,
+                                "height" : 30,
+                                "heightFactor" : null,
+                                "hueRotate" : 0,
+                                "hueRotateEnabled" : 0,
+                                "id" : "rc4lRk2C6",
+                                "invert" : 0,
+                                "invertEnabled" : 0,
+                                "left" : null,
                                 "locked" : false,
-                                "name" : null,
+                                "name" : "logo",
                                 "opacity" : 1,
-                                "parentid" : "gfEl69idX",
-                                "pathClosed" : false,
-                                "pathSegments" : [
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 30,
-                                    "y" : 0
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 0,
-                                    "y" : 0
-                                  }
-                                ],
+                                "parentid" : "kicFD5Mmx",
+                                "right" : 129,
                                 "rotation" : 0,
-                                "strokeAlignment" : "center",
-                                "strokeColor" : "#30303B",
-                                "strokeDashArray" : "0",
-                                "strokeDashOffset" : 0,
-                                "strokeEnabled" : 1,
-                                "strokeMiterLimit" : 4,
-                                "strokeWidth" : 2,
+                                "saturate" : 100,
+                                "saturateEnabled" : 0,
+                                "sepia" : 0,
+                                "sepiaEnabled" : 0,
+                                "shadows" : [
+
+                                ],
+                                "styledText" : {
+                                  "__class" : "StyledTextDraft",
+                                  "blocks" : [
+                                    {
+                                      "data" : {
+                                        "emptyStyle" : [
+                                          "FONT:SoleilSb",
+                                          "SIZE:16",
+                                          "LETTERSPACING:-0.1",
+                                          "LINEHEIGHT:1.9",
+                                          "ALIGN:left",
+                                          "COLOR:rgba(48, 48, 59, 1.00)"
+                                        ]
+                                      },
+                                      "depth" : 0,
+                                      "entityRanges" : [
+
+                                      ],
+                                      "inlineStyleRanges" : [
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "FONT:SoleilSb"
+                                        },
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "SIZE:16"
+                                        },
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "LETTERSPACING:-0.1"
+                                        },
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "LINEHEIGHT:1.9"
+                                        },
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "ALIGN:left"
+                                        },
+                                        {
+                                          "length" : 9,
+                                          "offset" : 0,
+                                          "style" : "COLOR:rgba(48, 48, 59, 1.00)"
+                                        }
+                                      ],
+                                      "key" : "2gfmr",
+                                      "text" : "Andy Hook",
+                                      "type" : "unstyled"
+                                    }
+                                  ],
+                                  "cached" : {
+                                    "html" : "<span data-offset-key=\"2gfmr-0-0\" style=\"tab-size:4;font-weight:600;font-family:&quot;SoleilSb&quot;, &quot;Soleil&quot;, serif;-webkit-text-fill-color:rgba(48, 48, 59, 1.00);font-size:16px;letter-spacing:-0.1px;line-height:1.9\"><span data-text=\"true\">Andy Hook<\/span><\/span>",
+                                    "os" : "10_13",
+                                    "size" : {
+                                      "height" : 30,
+                                      "width" : 84
+                                    },
+                                    "width" : 0
+                                  },
+                                  "entityMap" : {
+
+                                  }
+                                },
                                 "targetName" : null,
+                                "top" : null,
                                 "visible" : true,
-                                "width" : 30,
-                                "x" : 0.5,
-                                "y" : 6
+                                "width" : 84,
+                                "widthFactor" : null
                               }
                             ],
                             "clip" : false,
@@ -4175,8 +4377,8 @@
                             "exportOptions" : [
 
                             ],
-                            "fillColor" : "rgb(255, 255, 255)",
-                            "fillEnabled" : true,
+                            "fillColor" : "rgba(0, 170, 255, 0.5)",
+                            "fillEnabled" : false,
                             "fillGradient" : {
                               "__class" : "LinearGradient",
                               "alpha" : 1,
@@ -4191,19 +4393,19 @@
                             "fillType" : "color",
                             "grayscale" : 0,
                             "grayScaleEnabled" : 0,
-                            "height" : 12,
+                            "height" : 168,
                             "heightFactor" : null,
                             "hueRotate" : 0,
                             "hueRotateEnabled" : 0,
-                            "id" : "gfEl69idX",
+                            "id" : "kicFD5Mmx",
                             "intrinsicHeight" : null,
                             "intrinsicWidth" : null,
                             "invert" : 0,
                             "invertEnabled" : 0,
-                            "left" : 1,
+                            "left" : -224,
                             "locked" : false,
-                            "name" : "projectBack",
-                            "opacity" : 0.34999999999999998,
+                            "name" : "backToHomeButton",
+                            "opacity" : 1,
                             "parentid" : "mvGvSmn9x",
                             "radius" : 0,
                             "radiusBottomLeft" : 0,
@@ -4218,127 +4420,10 @@
                             "saturateEnabled" : 0,
                             "sepia" : 0,
                             "sepiaEnabled" : 0,
-                            "targetName" : null,
-                            "top" : null,
+                            "targetName" : "backToHomeButton",
+                            "top" : -72,
                             "visible" : true,
-                            "width" : 31,
-                            "widthFactor" : null
-                          },
-                          {
-                            "__class" : "TextNode",
-                            "autoSize" : true,
-                            "blendingEnabled" : 0,
-                            "blendingMode" : "normal",
-                            "blur" : 12,
-                            "blurEnabled" : 0,
-                            "blurType" : "layer",
-                            "bottom" : null,
-                            "brightness" : 100,
-                            "brightnessEnabled" : 0,
-                            "centerAnchorX" : 0.080000000000000002,
-                            "centerAnchorY" : 0.54545454545454541,
-                            "constraintsLocked" : false,
-                            "contrast" : 100,
-                            "contrastEnabled" : 0,
-                            "editable" : false,
-                            "exportOptions" : [
-
-                            ],
-                            "grayscale" : 0,
-                            "grayScaleEnabled" : 0,
-                            "height" : 30,
-                            "heightFactor" : null,
-                            "hueRotate" : 0,
-                            "hueRotateEnabled" : 0,
-                            "id" : "rc4lRk2C6",
-                            "invert" : 0,
-                            "invertEnabled" : 0,
-                            "left" : 58,
-                            "locked" : false,
-                            "name" : "logo",
-                            "opacity" : 1,
-                            "parentid" : "mvGvSmn9x",
-                            "right" : null,
-                            "rotation" : 0,
-                            "saturate" : 100,
-                            "saturateEnabled" : 0,
-                            "sepia" : 0,
-                            "sepiaEnabled" : 0,
-                            "shadows" : [
-
-                            ],
-                            "styledText" : {
-                              "__class" : "StyledTextDraft",
-                              "blocks" : [
-                                {
-                                  "data" : {
-                                    "emptyStyle" : [
-                                      "FONT:SoleilSb",
-                                      "SIZE:16",
-                                      "LETTERSPACING:-0.1",
-                                      "LINEHEIGHT:1.9",
-                                      "ALIGN:left",
-                                      "COLOR:rgba(48, 48, 59, 1.00)"
-                                    ]
-                                  },
-                                  "depth" : 0,
-                                  "entityRanges" : [
-
-                                  ],
-                                  "inlineStyleRanges" : [
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "FONT:SoleilSb"
-                                    },
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "SIZE:16"
-                                    },
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "LETTERSPACING:-0.1"
-                                    },
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "LINEHEIGHT:1.9"
-                                    },
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "ALIGN:left"
-                                    },
-                                    {
-                                      "length" : 9,
-                                      "offset" : 0,
-                                      "style" : "COLOR:rgba(48, 48, 59, 1.00)"
-                                    }
-                                  ],
-                                  "key" : "2gfmr",
-                                  "text" : "Andy Hook",
-                                  "type" : "unstyled"
-                                }
-                              ],
-                              "cached" : {
-                                "html" : "<span data-offset-key=\"2gfmr-0-0\" style=\"tab-size:4;font-weight:600;font-family:&quot;SoleilSb&quot;, &quot;Soleil&quot;, serif;-webkit-text-fill-color:rgba(48, 48, 59, 1.00);font-size:16px;letter-spacing:-0.1px;line-height:1.9\"><span data-text=\"true\">Andy Hook<\/span><\/span>",
-                                "os" : "10_13",
-                                "size" : {
-                                  "height" : 30,
-                                  "width" : 84
-                                },
-                                "width" : 0
-                              },
-                              "entityMap" : {
-
-                              }
-                            },
-                            "targetName" : null,
-                            "top" : null,
-                            "visible" : true,
-                            "width" : 84,
+                            "width" : 495,
                             "widthFactor" : null
                           }
                         ],
@@ -5149,250 +5234,14 @@
                             "borderStyle" : "solid",
                             "borderTop" : 1,
                             "borderWidth" : 1,
-                            "bottom" : null,
+                            "bottom" : 17,
                             "boxShadows" : [
 
                             ],
                             "brightness" : 100,
                             "brightnessEnabled" : 0,
-                            "centerAnchorX" : 0.78617647058823525,
-                            "centerAnchorY" : 0.51000000000000001,
-                            "children" : [
-                              {
-                                "__class" : "PathNode",
-                                "aspectRatioLocked" : false,
-                                "boxShadows" : [
-
-                                ],
-                                "exportOptions" : [
-
-                                ],
-                                "fillColor" : "rgba(0,170,255,0.5)",
-                                "fillEnabled" : false,
-                                "fillGradient" : {
-                                  "__class" : "LinearGradient",
-                                  "alpha" : 1,
-                                  "angle" : 0,
-                                  "end" : "rgba(0,0,0,0)",
-                                  "start" : "black"
-                                },
-                                "fillImage" : null,
-                                "fillImagePixelHeight" : null,
-                                "fillImagePixelWidth" : null,
-                                "fillImageResize" : "fill",
-                                "fillType" : "color",
-                                "height" : 12,
-                                "id" : "M14CrHpok",
-                                "lineCap" : "butt",
-                                "lineJoin" : "miter",
-                                "locked" : false,
-                                "name" : null,
-                                "opacity" : 1,
-                                "parentid" : "foobXIanX",
-                                "pathClosed" : false,
-                                "pathSegments" : [
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 6,
-                                    "y" : 12
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 0,
-                                    "y" : 6
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 6,
-                                    "y" : 0
-                                  }
-                                ],
-                                "rotation" : 0,
-                                "strokeAlignment" : "center",
-                                "strokeColor" : "#30303B",
-                                "strokeDashArray" : "0",
-                                "strokeDashOffset" : 0,
-                                "strokeEnabled" : 1,
-                                "strokeMiterLimit" : 4,
-                                "strokeWidth" : 2,
-                                "targetName" : null,
-                                "visible" : true,
-                                "width" : 6,
-                                "x" : 0,
-                                "y" : 0
-                              },
-                              {
-                                "__class" : "PathNode",
-                                "aspectRatioLocked" : false,
-                                "boxShadows" : [
-
-                                ],
-                                "exportOptions" : [
-
-                                ],
-                                "fillColor" : "rgba(0,170,255,0.5)",
-                                "fillEnabled" : false,
-                                "fillGradient" : {
-                                  "__class" : "LinearGradient",
-                                  "alpha" : 1,
-                                  "angle" : 0,
-                                  "end" : "rgba(0,0,0,0)",
-                                  "start" : "black"
-                                },
-                                "fillImage" : null,
-                                "fillImagePixelHeight" : null,
-                                "fillImagePixelWidth" : null,
-                                "fillImageResize" : "fill",
-                                "fillType" : "color",
-                                "height" : 1,
-                                "id" : "jmq87v8Mv",
-                                "lineCap" : "square",
-                                "lineJoin" : "miter",
-                                "locked" : false,
-                                "name" : null,
-                                "opacity" : 1,
-                                "parentid" : "foobXIanX",
-                                "pathClosed" : false,
-                                "pathSegments" : [
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 30,
-                                    "y" : 0
-                                  },
-                                  {
-                                    "__class" : "PathSegment",
-                                    "handleInX" : 0,
-                                    "handleInY" : 0,
-                                    "handleMirroring" : "straight",
-                                    "handleOutX" : 0,
-                                    "handleOutY" : 0,
-                                    "radius" : 0,
-                                    "x" : 0,
-                                    "y" : 0
-                                  }
-                                ],
-                                "rotation" : 0,
-                                "strokeAlignment" : "center",
-                                "strokeColor" : "#30303B",
-                                "strokeDashArray" : "0",
-                                "strokeDashOffset" : 0,
-                                "strokeEnabled" : 1,
-                                "strokeMiterLimit" : 4,
-                                "strokeWidth" : 2,
-                                "targetName" : null,
-                                "visible" : true,
-                                "width" : 30,
-                                "x" : 0.5,
-                                "y" : 6
-                              }
-                            ],
-                            "clip" : false,
-                            "constraintsLocked" : false,
-                            "contrast" : 100,
-                            "contrastEnabled" : 0,
-                            "deviceType" : null,
-                            "exportIncludesBackground" : true,
-                            "exportOptions" : [
-
-                            ],
-                            "fillColor" : "rgba(255,255,255,1)",
-                            "fillEnabled" : false,
-                            "fillGradient" : {
-                              "__class" : "LinearGradient",
-                              "alpha" : 1,
-                              "angle" : 0,
-                              "end" : "rgba(0,0,0,0)",
-                              "start" : "black"
-                            },
-                            "fillImage" : null,
-                            "fillImagePixelHeight" : null,
-                            "fillImagePixelWidth" : null,
-                            "fillImageResize" : "fill",
-                            "fillType" : "color",
-                            "grayscale" : 0,
-                            "grayScaleEnabled" : 0,
-                            "height" : 12,
-                            "heightFactor" : null,
-                            "hueRotate" : 0,
-                            "hueRotateEnabled" : 0,
-                            "id" : "foobXIanX",
-                            "intrinsicHeight" : null,
-                            "intrinsicWidth" : null,
-                            "invert" : 0,
-                            "invertEnabled" : 0,
-                            "left" : null,
-                            "locked" : false,
-                            "name" : "prevProject",
-                            "opacity" : 1,
-                            "parentid" : "BXnBn4PeG",
-                            "radius" : 0,
-                            "radiusBottomLeft" : 0,
-                            "radiusBottomRight" : 0,
-                            "radiusIsRelative" : false,
-                            "radiusPerCorner" : false,
-                            "radiusTopLeft" : 0,
-                            "radiusTopRight" : 0,
-                            "right" : 348,
-                            "rotation" : 0,
-                            "saturate" : 100,
-                            "saturateEnabled" : 0,
-                            "sepia" : 0,
-                            "sepiaEnabled" : 0,
-                            "targetName" : null,
-                            "top" : null,
-                            "visible" : true,
-                            "width" : 31,
-                            "widthFactor" : null
-                          },
-                          {
-                            "__class" : "FrameNode",
-                            "aspectRatioLocked" : false,
-                            "blendingEnabled" : 0,
-                            "blendingMode" : "normal",
-                            "blur" : 12,
-                            "blurEnabled" : 0,
-                            "blurType" : "layer",
-                            "borderBottom" : 1,
-                            "borderColor" : "#222",
-                            "borderEnabled" : 0,
-                            "borderLeft" : 1,
-                            "borderPerSide" : false,
-                            "borderRight" : 1,
-                            "borderStyle" : "solid",
-                            "borderTop" : 1,
-                            "borderWidth" : 1,
-                            "bottom" : null,
-                            "boxShadows" : [
-
-                            ],
-                            "brightness" : 100,
-                            "brightnessEnabled" : 0,
-                            "centerAnchorX" : 0.84147058823529408,
-                            "centerAnchorY" : 0.51000000000000001,
+                            "centerAnchorX" : 0.84264705882352942,
+                            "centerAnchorY" : 0.495,
                             "children" : [
                               {
                                 "__class" : "PathNode",
@@ -5424,7 +5273,7 @@
                                 "locked" : false,
                                 "name" : null,
                                 "opacity" : 1,
-                                "parentid" : "fgWspzLel",
+                                "parentid" : "TD8HYEduQ",
                                 "pathClosed" : false,
                                 "pathSegments" : [
                                   {
@@ -5472,8 +5321,8 @@
                                 "targetName" : null,
                                 "visible" : true,
                                 "width" : 6,
-                                "x" : 25,
-                                "y" : 0
+                                "x" : 57,
+                                "y" : 29
                               },
                               {
                                 "__class" : "PathNode",
@@ -5505,7 +5354,7 @@
                                 "locked" : false,
                                 "name" : null,
                                 "opacity" : 1,
-                                "parentid" : "fgWspzLel",
+                                "parentid" : "TD8HYEduQ",
                                 "pathClosed" : false,
                                 "pathSegments" : [
                                   {
@@ -5542,8 +5391,8 @@
                                 "targetName" : null,
                                 "visible" : true,
                                 "width" : 30,
-                                "x" : 0.5,
-                                "y" : 6
+                                "x" : 32.5,
+                                "y" : 35
                               }
                             ],
                             "clip" : false,
@@ -5555,8 +5404,8 @@
                             "exportOptions" : [
 
                             ],
-                            "fillColor" : "rgba(255,255,255,1)",
-                            "fillEnabled" : false,
+                            "fillColor" : "rgba(0, 170, 255, 0.5)",
+                            "fillEnabled" : true,
                             "fillGradient" : {
                               "__class" : "LinearGradient",
                               "alpha" : 1,
@@ -5571,11 +5420,11 @@
                             "fillType" : "color",
                             "grayscale" : 0,
                             "grayScaleEnabled" : 0,
-                            "height" : 12,
+                            "height" : 67,
                             "heightFactor" : null,
                             "hueRotate" : 0,
                             "hueRotateEnabled" : 0,
-                            "id" : "fgWspzLel",
+                            "id" : "TD8HYEduQ",
                             "intrinsicHeight" : null,
                             "intrinsicWidth" : null,
                             "invert" : 0,
@@ -5592,16 +5441,252 @@
                             "radiusPerCorner" : false,
                             "radiusTopLeft" : 0,
                             "radiusTopRight" : 0,
-                            "right" : 254,
+                            "right" : 218,
                             "rotation" : 0,
                             "saturate" : 100,
                             "saturateEnabled" : 0,
                             "sepia" : 0,
                             "sepiaEnabled" : 0,
-                            "targetName" : null,
-                            "top" : null,
+                            "targetName" : "nextProject",
+                            "top" : 16,
                             "visible" : true,
-                            "width" : 31,
+                            "width" : 99,
+                            "widthFactor" : null
+                          },
+                          {
+                            "__class" : "FrameNode",
+                            "aspectRatioLocked" : false,
+                            "blendingEnabled" : 0,
+                            "blendingMode" : "normal",
+                            "blur" : 12,
+                            "blurEnabled" : 0,
+                            "blurType" : "layer",
+                            "borderBottom" : 1,
+                            "borderColor" : "#222",
+                            "borderEnabled" : 0,
+                            "borderLeft" : 1,
+                            "borderPerSide" : false,
+                            "borderRight" : 1,
+                            "borderStyle" : "solid",
+                            "borderTop" : 1,
+                            "borderWidth" : 1,
+                            "bottom" : 17,
+                            "boxShadows" : [
+
+                            ],
+                            "brightness" : 100,
+                            "brightnessEnabled" : 0,
+                            "centerAnchorX" : 0.7802941176470588,
+                            "centerAnchorY" : 0.495,
+                            "children" : [
+                              {
+                                "__class" : "PathNode",
+                                "aspectRatioLocked" : false,
+                                "boxShadows" : [
+
+                                ],
+                                "exportOptions" : [
+
+                                ],
+                                "fillColor" : "rgba(0,170,255,0.5)",
+                                "fillEnabled" : false,
+                                "fillGradient" : {
+                                  "__class" : "LinearGradient",
+                                  "alpha" : 1,
+                                  "angle" : 0,
+                                  "end" : "rgba(0,0,0,0)",
+                                  "start" : "black"
+                                },
+                                "fillImage" : null,
+                                "fillImagePixelHeight" : null,
+                                "fillImagePixelWidth" : null,
+                                "fillImageResize" : "fill",
+                                "fillType" : "color",
+                                "height" : 12,
+                                "id" : "M14CrHpok",
+                                "lineCap" : "butt",
+                                "lineJoin" : "miter",
+                                "locked" : false,
+                                "name" : null,
+                                "opacity" : 1,
+                                "parentid" : "fRkLNiuSL",
+                                "pathClosed" : false,
+                                "pathSegments" : [
+                                  {
+                                    "__class" : "PathSegment",
+                                    "handleInX" : 0,
+                                    "handleInY" : 0,
+                                    "handleMirroring" : "straight",
+                                    "handleOutX" : 0,
+                                    "handleOutY" : 0,
+                                    "radius" : 0,
+                                    "x" : 6,
+                                    "y" : 12
+                                  },
+                                  {
+                                    "__class" : "PathSegment",
+                                    "handleInX" : 0,
+                                    "handleInY" : 0,
+                                    "handleMirroring" : "straight",
+                                    "handleOutX" : 0,
+                                    "handleOutY" : 0,
+                                    "radius" : 0,
+                                    "x" : 0,
+                                    "y" : 6
+                                  },
+                                  {
+                                    "__class" : "PathSegment",
+                                    "handleInX" : 0,
+                                    "handleInY" : 0,
+                                    "handleMirroring" : "straight",
+                                    "handleOutX" : 0,
+                                    "handleOutY" : 0,
+                                    "radius" : 0,
+                                    "x" : 6,
+                                    "y" : 0
+                                  }
+                                ],
+                                "rotation" : 0,
+                                "strokeAlignment" : "center",
+                                "strokeColor" : "#30303B",
+                                "strokeDashArray" : "0",
+                                "strokeDashOffset" : 0,
+                                "strokeEnabled" : 1,
+                                "strokeMiterLimit" : 4,
+                                "strokeWidth" : 2,
+                                "targetName" : null,
+                                "visible" : true,
+                                "width" : 6,
+                                "x" : 41,
+                                "y" : 29
+                              },
+                              {
+                                "__class" : "PathNode",
+                                "aspectRatioLocked" : false,
+                                "boxShadows" : [
+
+                                ],
+                                "exportOptions" : [
+
+                                ],
+                                "fillColor" : "rgba(0,170,255,0.5)",
+                                "fillEnabled" : false,
+                                "fillGradient" : {
+                                  "__class" : "LinearGradient",
+                                  "alpha" : 1,
+                                  "angle" : 0,
+                                  "end" : "rgba(0,0,0,0)",
+                                  "start" : "black"
+                                },
+                                "fillImage" : null,
+                                "fillImagePixelHeight" : null,
+                                "fillImagePixelWidth" : null,
+                                "fillImageResize" : "fill",
+                                "fillType" : "color",
+                                "height" : 1,
+                                "id" : "jmq87v8Mv",
+                                "lineCap" : "square",
+                                "lineJoin" : "miter",
+                                "locked" : false,
+                                "name" : null,
+                                "opacity" : 1,
+                                "parentid" : "fRkLNiuSL",
+                                "pathClosed" : false,
+                                "pathSegments" : [
+                                  {
+                                    "__class" : "PathSegment",
+                                    "handleInX" : 0,
+                                    "handleInY" : 0,
+                                    "handleMirroring" : "straight",
+                                    "handleOutX" : 0,
+                                    "handleOutY" : 0,
+                                    "radius" : 0,
+                                    "x" : 30,
+                                    "y" : 0
+                                  },
+                                  {
+                                    "__class" : "PathSegment",
+                                    "handleInX" : 0,
+                                    "handleInY" : 0,
+                                    "handleMirroring" : "straight",
+                                    "handleOutX" : 0,
+                                    "handleOutY" : 0,
+                                    "radius" : 0,
+                                    "x" : 0,
+                                    "y" : 0
+                                  }
+                                ],
+                                "rotation" : 0,
+                                "strokeAlignment" : "center",
+                                "strokeColor" : "#30303B",
+                                "strokeDashArray" : "0",
+                                "strokeDashOffset" : 0,
+                                "strokeEnabled" : 1,
+                                "strokeMiterLimit" : 4,
+                                "strokeWidth" : 2,
+                                "targetName" : null,
+                                "visible" : true,
+                                "width" : 30,
+                                "x" : 41.5,
+                                "y" : 35
+                              }
+                            ],
+                            "clip" : false,
+                            "constraintsLocked" : false,
+                            "contrast" : 100,
+                            "contrastEnabled" : 0,
+                            "deviceType" : null,
+                            "exportIncludesBackground" : true,
+                            "exportOptions" : [
+
+                            ],
+                            "fillColor" : "rgba(0, 170, 255, 0.5)",
+                            "fillEnabled" : true,
+                            "fillGradient" : {
+                              "__class" : "LinearGradient",
+                              "alpha" : 1,
+                              "angle" : 0,
+                              "end" : "rgba(0,0,0,0)",
+                              "start" : "black"
+                            },
+                            "fillImage" : null,
+                            "fillImagePixelHeight" : null,
+                            "fillImagePixelWidth" : null,
+                            "fillImageResize" : "fill",
+                            "fillType" : "color",
+                            "grayscale" : 0,
+                            "grayScaleEnabled" : 0,
+                            "height" : 67,
+                            "heightFactor" : null,
+                            "hueRotate" : 0,
+                            "hueRotateEnabled" : 0,
+                            "id" : "fRkLNiuSL",
+                            "intrinsicHeight" : null,
+                            "intrinsicWidth" : null,
+                            "invert" : 0,
+                            "invertEnabled" : 0,
+                            "left" : null,
+                            "locked" : false,
+                            "name" : "prevProject",
+                            "opacity" : 1,
+                            "parentid" : "BXnBn4PeG",
+                            "radius" : 0,
+                            "radiusBottomLeft" : 0,
+                            "radiusBottomRight" : 0,
+                            "radiusIsRelative" : false,
+                            "radiusPerCorner" : false,
+                            "radiusTopLeft" : 0,
+                            "radiusTopRight" : 0,
+                            "right" : 327,
+                            "rotation" : 0,
+                            "saturate" : 100,
+                            "saturateEnabled" : 0,
+                            "sepia" : 0,
+                            "sepiaEnabled" : 0,
+                            "targetName" : "prevProject",
+                            "top" : 16,
+                            "visible" : true,
+                            "width" : 93,
                             "widthFactor" : null
                           }
                         ],
