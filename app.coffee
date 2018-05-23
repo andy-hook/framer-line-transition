@@ -67,11 +67,11 @@ for i in sliceArray
 		left:
 			x: -slice.width
 		peek:
-			x: 2000
+			x: -slice.width + 200
 		show:
 			x: 0
 	
-	slice.stateSwitch 'right'
+	slice.stateSwitch 'left'
 		
 	slice.addChild(sliceInner)
 	
@@ -109,16 +109,17 @@ rotateSlice = (item, slideTime, dir) ->
 
 hideSlices = () ->
 	for slice, i in sliceElArray
-		slice.stateSwitch 'right'
+		slice.stateSwitch 'left'
 		
 
-
+# Slice timings generator
 generateTimings = (array) ->
 	timings = []
 	
 	for itemIndex, i in shuffleArray(array)
 		set = {
-			itemIndex: itemIndex
+			itemOuter: sliceElArray[itemIndex]
+			itemInner: sliceInnerArray[itemIndex]
 			slideTime: i / 10 + .2
 			kickoffDelay: i / 30
 		}
@@ -126,27 +127,23 @@ generateTimings = (array) ->
 		timings.push(set)
 	
 	return timings
+	
+sliceTimings = generateTimings(sliceArray)
 
+reGenerateSliceTimings = () ->
+	sliceTimings = generateTimings(sliceArray)
 
+# Full screen slice animation
 animateSlices = (opts) ->
 	{ dir, state, contrast, cb } = opts;
 	
 	pageTransitioning = true
-
-# 	Bring all slices to the front above shuffled page content
-	for slice, i in sliceElArray
-		slice.bringToFront()
-		
-	sliceTimings = generateTimings(sliceArray)
 	
 	for set, i in sliceTimings
-		itemOuter = sliceElArray[set.itemIndex]
-		itemInner = sliceInnerArray[set.itemIndex]
-		
 		if contrast is 'dark'
-			itemInner.backgroundColor = '#1B1C26'
+			set.itemInner.backgroundColor = '#1B1C26'
 		else
-			itemInner.backgroundColor = '#FBFCFC'
+			set.itemInner.backgroundColor = '#FBFCFC'
 		
 		slideTime = set.slideTime
 		kickoffDelay = set.kickoffDelay
@@ -155,36 +152,39 @@ animateSlices = (opts) ->
 			time: slideTime
 			delay: kickoffDelay
 		
-		rotateSlice(itemInner, slideTime, dir)
+		rotateSlice(set.itemInner, slideTime, dir)
 		
 		if state is 'hide'
-			itemOuter.stateSwitch 'show'
+			set.itemOuter.stateSwitch 'show'
 			
 			if dir is 'left'
-				itemOuter.animate 'left',
+				set.itemOuter.animate 'left',
 					animationOptions = animationOpts
 			else if dir is 'right'
-				itemOuter.animate 'right',
+				set.itemOuter.animate 'right',
 					animationOptions = animationOpts
 		
 		if state is 'show'
 			if dir is 'left'
-				itemOuter.stateSwitch 'right'
+				set.itemOuter.stateSwitch 'right'
 			else if dir is 'right'
-				itemOuter.stateSwitch 'left'
+				set.itemOuter.stateSwitch 'left'
 			
-			itemOuter.animate 'show',
+			set.itemOuter.animate 'show',
 				animationOptions = animationOpts
-				
+			
 		
 # 		Run callback after last slice has completed animation
 		do (i) ->
 			if i == (sliceTimings.length - 1)
 				pageTransitioning = false
-				
 				Utils.delay slideTime + kickoffDelay, ->
 					if cb
 						cb()
+						
+animateSlicesRandom = (opts) ->
+	reGenerateSliceTimings()
+	animateSlices(opts)
 	
 # Home page
 home.x = 0
@@ -438,7 +438,7 @@ loadFirstProjectButton.on Events.MouseDown, ->
 		
 	projectReset()
 		
-	animateSlices(
+	animateSlicesRandom(
 		dir: 'left'
 		state: 'show'
 		contrast: 'light'
@@ -455,7 +455,7 @@ backToHomeButton.on Events.MouseDown, ->
 		
 	hideProjectRight()
 		
-	animateSlices(
+	animateSlicesRandom(
 		dir: 'right'
 		state: 'show'
 		contrast: 'dark'
@@ -464,14 +464,6 @@ backToHomeButton.on Events.MouseDown, ->
 			showHome()
 			hideSlices()
 	)
-	
-# backToHomeButton.on Events.MouseOver, ->
-# 	animateSlices(
-# 		dir: 'peek'
-# 		state: 'show'
-# 		contrast: 'dark'
-# 	)
-	
 
 prevProject.on Events.MouseDown, ->
 	if pageTransitioning
@@ -479,14 +471,14 @@ prevProject.on Events.MouseDown, ->
 	
 	hideProjectRight()
 		
-	animateSlices(
+	animateSlicesRandom(
 		dir: 'right'
 		state: 'show'
 		contrast: 'dark'
 		cb: () ->
 			projectReset()
 			showProject()
-			animateSlices(
+			animateSlicesRandom(
 				dir: 'right'
 				state: 'hide'
 				contrast: 'dark'
@@ -500,14 +492,14 @@ nextProject.on Events.MouseDown, ->
 	
 	hideProjectLeft()
 		
-	animateSlices(
+	animateSlicesRandom(
 		dir: 'left'
 		state: 'show'
 		contrast: 'dark'
 		cb: () ->
 			projectReset()
 			animateProject()
-			animateSlices(
+			animateSlicesRandom(
 				dir: 'left'
 				state: 'hide'
 				contrast: 'dark'

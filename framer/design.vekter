@@ -694,7 +694,7 @@
                                         "exportOptions" : [
 
                                         ],
-                                        "fillColor" : "rgba(0,170,255,0.5)",
+                                        "fillColor" : "rgba(0, 170, 255, 0.9)",
                                         "fillEnabled" : false,
                                         "fillGradient" : {
                                           "__class" : "LinearGradient",
@@ -775,7 +775,7 @@
                                         "exportOptions" : [
 
                                         ],
-                                        "fillColor" : "rgba(0,170,255,0.5)",
+                                        "fillColor" : "rgba(0, 170, 255, 0.9)",
                                         "fillEnabled" : false,
                                         "fillGradient" : {
                                           "__class" : "LinearGradient",
@@ -874,7 +874,7 @@
                                     "left" : 225,
                                     "locked" : false,
                                     "name" : "projectBack",
-                                    "opacity" : 0.34999999999999998,
+                                    "opacity" : 1,
                                     "parentid" : "kicFD5Mmx",
                                     "radius" : 0,
                                     "radiusBottomLeft" : 0,
@@ -906,7 +906,7 @@
                                     "bottom" : 63,
                                     "brightness" : 100,
                                     "brightnessEnabled" : 0,
-                                    "centerAnchorX" : 0.65454545454545454,
+                                    "centerAnchorX" : 0.64040404040404042,
                                     "centerAnchorY" : 0.5357142857142857,
                                     "constraintsLocked" : false,
                                     "contrast" : 100,
@@ -929,7 +929,7 @@
                                     "name" : "logo",
                                     "opacity" : 1,
                                     "parentid" : "kicFD5Mmx",
-                                    "right" : 129,
+                                    "right" : 136,
                                     "rotation" : 0,
                                     "saturate" : 100,
                                     "saturateEnabled" : 0,
@@ -958,43 +958,43 @@
                                           ],
                                           "inlineStyleRanges" : [
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "FONT:SoleilSb"
                                             },
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "SIZE:16"
                                             },
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "LETTERSPACING:-0.1"
                                             },
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "LINEHEIGHT:1.9"
                                             },
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "ALIGN:left"
                                             },
                                             {
-                                              "length" : 9,
+                                              "length" : 12,
                                               "offset" : 0,
                                               "style" : "COLOR:rgba(48, 48, 59, 1.00)"
                                             }
                                           ],
                                           "key" : "2gfmr",
-                                          "text" : "Andy Hook",
+                                          "text" : "All Projects",
                                           "type" : "unstyled"
                                         }
                                       ],
                                       "cached" : {
-                                        "html" : "<span data-offset-key=\"2gfmr-0-0\" style=\"tab-size:4;font-weight:600;font-family:&quot;SoleilSb&quot;, &quot;Soleil&quot;, serif;-webkit-text-fill-color:rgba(48, 48, 59, 1.00);font-size:16px;letter-spacing:-0.1px;line-height:1.9\"><span data-text=\"true\">Andy Hook<\/span><\/span>",
+                                        "html" : "<span data-offset-key=\"2gfmr-0-0\" style=\"tab-size:4;font-weight:600;font-family:&quot;SoleilSb&quot;, &quot;Soleil&quot;, serif;-webkit-text-fill-color:rgba(48, 48, 59, 1.00);font-size:16px;letter-spacing:-0.1px;line-height:1.9\"><span data-text=\"true\">All Projects<\/span><\/span>",
                                         "os" : "10_13",
                                         "size" : {
                                           "height" : 30,
