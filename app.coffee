@@ -9,18 +9,17 @@ Framer.Device.customize
 	
 holder.x = 0
 holder.y = 0
-
-slicesOpen = false
-pageTransitioning = false
-
-# Updated inside loop after we know how long the slides will take to transition
-totalSlideTime = 0
+page.x = 0
+page.y = 0
 
 page.states =
 	light:
 		backgroundColor: '#FBFCFC'
 	dark:
 		backgroundColor: '#1B1C26'
+
+slicesOpen = false
+pageTransitioning = false
 		
 # Slice Animation
 
@@ -161,10 +160,9 @@ animateSlices = (dir, state, contrast, cb) ->
 # 		Run callback after last slice has completed animation
 		do (i) ->
 			if i == (shuffledOrder.length - 1)
-				totalSlideTime = slideTime + kickoffDelay
 				pageTransitioning = false
 				
-				Utils.delay totalSlideTime, ->
+				Utils.delay slideTime + kickoffDelay, ->
 					if cb
 						cb()
 	
@@ -185,6 +183,8 @@ homeContents.states =
 		skewX: 30 
 		x: Align.left(-1000)
 		opacity: 0
+		animationOptions:
+			time: .5
 		
 homeContents.originX = .5
 homeContents.originY = .5
@@ -208,6 +208,8 @@ homeNavbar.states =
 	visible:
 		y: Align.center
 		opacity: 1
+		animationOptions:
+			time: .5
 		
 homeShowNavbar = () ->
 	homeNavbar.stateSwitch 'hidden'
@@ -220,6 +222,9 @@ for headline, i in homeHeadlines
 			x: Align.left
 			y: Align.top
 			opacity: 1
+			animationOptions:
+				time: .5
+				delay: i / 20 + .2
 		outBottom:
 			x: Align.left
 			y: Align.top(100)
@@ -237,6 +242,9 @@ for thumbnail, i in homeThumbnails
 			x: Align.left
 			y: Align.top
 			opacity: 1
+			animationOptions:
+				time: .7
+				delay: i / 20 + .1
 		outBottom:
 			x: Align.left
 			y: Align.top(500)
@@ -275,6 +283,9 @@ showHome = () ->
 	homeShowHeadlines()
 	homeShowThumbnails()
 	homeShowNumbers()
+	
+testBtn.on Events.MouseDown, ->
+	showHome()
 
 # Project page
 project.x = 0
@@ -299,10 +310,14 @@ projectContents.states =
 		skewX: 30 
 		x: Align.left(-1000)
 		opacity: 0
+		animationOptions:
+			time: .5
 	skewRight:
 		skewX: -30 
 		x: Align.right(1000)
 		opacity: 0
+		animationOptions:
+			time: .5
 
 # Navbar
 projectNavBar.states =
