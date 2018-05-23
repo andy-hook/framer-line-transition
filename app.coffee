@@ -9,6 +9,12 @@ Framer.Device.customize
 
 slicesOpen = false
 pageTransitioning = false
+
+page.states =
+	light:
+		backgroundColor: '#FBFCFC'
+	dark:
+		backgroundColor: '#1B1C26'
 	
 # Home page
 home.x = 0
@@ -222,8 +228,13 @@ projectReset = () ->
 	
 showProject = () ->
 	project.bringToFront()
-	project.stateSwitch 'visible'
+	page.stateSwitch 'light'
+	page.placeBehind(project)
 	
+animateProject = () ->
+	showProject()
+
+	project.stateSwitch 'visible'
 	projectNavBar.animate 'visible'
 	projectHeadline.animate 'visible'
 	projectDesc.animate 'visible'
@@ -389,14 +400,13 @@ animateSlices = (dir, state, contrast, cb) ->
 						cb()
 
 
-
 loadFirstProjectButton.on Events.MouseDown, ->
 	if pageTransitioning
 		return
 		
 	projectReset()
 		
-	animateSlices('left', 'show', 'light', showProject)
+	animateSlices('left', 'show', 'light', animateProject)
 	homeAnimateOut()
 
 backToHomeButton.on Events.MouseDown, ->
@@ -420,7 +430,8 @@ prevProject.on Events.MouseDown, ->
 		projectReset()
 		
 		showProject()
-		animateSlices('right', 'hide', 'dark')
+		
+		animateSlices('right', 'hide', 'dark', animateProject)
 
 	)
 
@@ -433,7 +444,7 @@ nextProject.on Events.MouseDown, ->
 	animateSlices('left', 'show', 'dark', () ->
 		projectReset()
 		
-		showProject()
+		animateProject()
 		animateSlices('left', 'hide', 'dark')
 
 	)

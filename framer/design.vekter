@@ -5038,18 +5038,6 @@
                                 "blurEnabled" : 0,
                                 "blurType" : "layer",
                                 "bottom" : null,
-                                "boxShadows" : [
-                                  {
-                                    "__class" : "BoxShadow",
-                                    "blur" : 2,
-                                    "color" : "rgba(0,0,0,0.5)",
-                                    "enabled" : false,
-                                    "inset" : false,
-                                    "spread" : 0,
-                                    "x" : 0,
-                                    "y" : 1
-                                  }
-                                ],
                                 "brightness" : 100,
                                 "brightnessEnabled" : 0,
                                 "centerAnchorX" : 0,
