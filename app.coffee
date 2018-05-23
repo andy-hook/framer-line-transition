@@ -66,6 +66,8 @@ for i in sliceArray
 			x: slice.width
 		left:
 			x: -slice.width
+		peek:
+			x: 2000
 		show:
 			x: 0
 	
@@ -108,29 +110,46 @@ rotateSlice = (item, slideTime, dir) ->
 hideSlices = () ->
 	for slice, i in sliceElArray
 		slice.stateSwitch 'right'
+		
 
-# Slice animations
-# Uses random shuffle to randomize delay and timing for each slice
-animateSlices = (dir, state, contrast, cb) ->
+
+generateTimings = (array) ->
+	timings = []
+	
+	for itemIndex, i in shuffleArray(array)
+		set = {
+			itemIndex: itemIndex
+			slideTime: i / 10 + .2
+			kickoffDelay: i / 30
+		}
+		
+		timings.push(set)
+	
+	return timings
+
+
+animateSlices = (opts) ->
+	{ dir, state, contrast, cb } = opts;
+	
 	pageTransitioning = true
 
 # 	Bring all slices to the front above shuffled page content
 	for slice, i in sliceElArray
 		slice.bringToFront()
 		
-	shuffledOrder = shuffleArray(sliceArray)
+	sliceTimings = generateTimings(sliceArray)
 	
-	for itemIndex, i in shuffledOrder
-		itemOuter = sliceElArray[itemIndex]
-		itemInner = sliceInnerArray[itemIndex]
+	for set, i in sliceTimings
+		itemOuter = sliceElArray[set.itemIndex]
+		itemInner = sliceInnerArray[set.itemIndex]
 		
 		if contrast is 'dark'
 			itemInner.backgroundColor = '#1B1C26'
 		else
 			itemInner.backgroundColor = '#FBFCFC'
 		
-		slideTime = i / 10 + .2
-		kickoffDelay = i / 30
+		slideTime = set.slideTime
+		kickoffDelay = set.kickoffDelay
 		
 		animationOpts =
 			time: slideTime
@@ -156,10 +175,11 @@ animateSlices = (dir, state, contrast, cb) ->
 			
 			itemOuter.animate 'show',
 				animationOptions = animationOpts
+				
 		
 # 		Run callback after last slice has completed animation
 		do (i) ->
-			if i == (shuffledOrder.length - 1)
+			if i == (sliceTimings.length - 1)
 				pageTransitioning = false
 				
 				Utils.delay slideTime + kickoffDelay, ->
@@ -203,13 +223,13 @@ homeShowGradient = () ->
 # Navbar
 homeNavbar.states =
 	hidden:
-		y: Align.center(-100)
+		y: Align.center(-50)
 		opacity: 0
 	visible:
 		y: Align.center
 		opacity: 1
 		animationOptions:
-			time: .5
+			time: .3
 		
 homeShowNavbar = () ->
 	homeNavbar.stateSwitch 'hidden'
@@ -224,7 +244,7 @@ for headline, i in homeHeadlines
 			opacity: 1
 			animationOptions:
 				time: .5
-				delay: i / 20 + .2
+				delay: i / 20 + .1
 		outBottom:
 			x: Align.left
 			y: Align.top(100)
@@ -244,7 +264,7 @@ for thumbnail, i in homeThumbnails
 			opacity: 1
 			animationOptions:
 				time: .7
-				delay: i / 20 + .1
+				delay: i / 20
 		outBottom:
 			x: Align.left
 			y: Align.top(500)
@@ -261,6 +281,9 @@ for number, i in yearNumbers
 		initial:
 			y: Align.top
 			opacity: 1
+			animationOptions:
+				time: .7
+				delay: .1
 		outBottom:
 			y: Align.top(200)
 			opacity: 0
@@ -415,9 +438,13 @@ loadFirstProjectButton.on Events.MouseDown, ->
 		
 	projectReset()
 		
-	animateSlices('left', 'show', 'light', () -> 
-		animateProject()
-		hideSlices()
+	animateSlices(
+		dir: 'left'
+		state: 'show'
+		contrast: 'light'
+		cb: () -> 
+			animateProject()
+			hideSlices()
 	)
 
 	homeAnimateOut()
@@ -428,11 +455,23 @@ backToHomeButton.on Events.MouseDown, ->
 		
 	hideProjectRight()
 		
-	animateSlices('right', 'show', 'dark', () ->
-		projectReset()
-		showHome()
-		hideSlices()
+	animateSlices(
+		dir: 'right'
+		state: 'show'
+		contrast: 'dark'
+		cb: () ->
+			projectReset()
+			showHome()
+			hideSlices()
 	)
+	
+# backToHomeButton.on Events.MouseOver, ->
+# 	animateSlices(
+# 		dir: 'peek'
+# 		state: 'show'
+# 		contrast: 'dark'
+# 	)
+	
 
 prevProject.on Events.MouseDown, ->
 	if pageTransitioning
@@ -440,13 +479,19 @@ prevProject.on Events.MouseDown, ->
 	
 	hideProjectRight()
 		
-	animateSlices('right', 'show', 'dark', () ->
-		projectReset()
-		
-		showProject()
-		
-		animateSlices('right', 'hide', 'dark', animateProject)
-
+	animateSlices(
+		dir: 'right'
+		state: 'show'
+		contrast: 'dark'
+		cb: () ->
+			projectReset()
+			showProject()
+			animateSlices(
+				dir: 'right'
+				state: 'hide'
+				contrast: 'dark'
+				cb: animateProject
+			)
 	)
 
 nextProject.on Events.MouseDown, ->
@@ -455,10 +500,16 @@ nextProject.on Events.MouseDown, ->
 	
 	hideProjectLeft()
 		
-	animateSlices('left', 'show', 'dark', () ->
-		projectReset()
-		
-		animateProject()
-		animateSlices('left', 'hide', 'dark')
-
+	animateSlices(
+		dir: 'left'
+		state: 'show'
+		contrast: 'dark'
+		cb: () ->
+			projectReset()
+			animateProject()
+			animateSlices(
+				dir: 'left'
+				state: 'hide'
+				contrast: 'dark'
+			)
 	)
