@@ -6,15 +6,167 @@ Framer.Device.customize
 	deviceImageWidth: 1700
 	deviceImageHeight: 956
 	devicePixelRatio: 1
+	
+holder.x = 0
+holder.y = 0
 
 slicesOpen = false
 pageTransitioning = false
+
+# Updated inside loop after we know how long the slides will take to transition
+totalSlideTime = 0
 
 page.states =
 	light:
 		backgroundColor: '#FBFCFC'
 	dark:
 		backgroundColor: '#1B1C26'
+		
+# Slice Animation
+
+# Shuffle helper
+shuffleArray = (source) ->
+  # Arrays with < 2 elements do not shuffle well. Instead make it a noop.
+  return source unless source.length >= 2
+  # From the end of the list to the beginning, pick element `index`.
+  for index in [source.length-1..1]
+    # Choose random element `randomIndex` to the front of `index` to swap with.
+    randomIndex = Math.floor Math.random() * (index + 1)
+    # Swap `randomIndex` with `index`, using destructured assignment
+    [source[index], source[randomIndex]] = [source[randomIndex], source[index]]
+  source
+
+# Slices setup
+sliceArray = [0..5]
+sliceInnerArray = []
+sliceElArray = []
+sliceCurve = Bezier(.16,.26,.04,.98)
+
+# Create slices
+for i in sliceArray
+	sliceHeight = Math.round(page.height / sliceArray.length)
+	
+	slice = new Layer
+		y: sliceHeight * i
+		x: 0
+		height: sliceHeight + 2
+		width: page.width
+		backgroundColor: 'transparent'
+		borderWidth: 0
+		animationOptions:
+			curve: sliceCurve
+	
+	sliceInner = new Layer
+		height: slice.height
+		width: slice.width
+		animationOptions:
+			curve: sliceCurve
+		
+	slice.states =
+		right:
+			x: slice.width
+		left:
+			x: -slice.width
+		show:
+			x: 0
+	
+	slice.stateSwitch 'right'
+		
+	slice.addChild(sliceInner)
+	
+	canvas.addChild(slice)
+	
+	sliceInner.x = 0
+	sliceInner.y = Align.center
+	
+	sliceInnerArray.push sliceInner
+	
+	sliceElArray.push slice
+
+# Rotates the slice
+rotateSlice = (item, slideTime, dir) ->
+	skewAmount = if dir is 'left' then 30 else -30
+	
+	item.originY = 1
+	
+	if dir is 'left'
+		item.originX = 0
+		
+	else if dir is 'right'
+		item.originX = 1
+	
+	item.animate
+		skewX: skewAmount
+		animationOptions =
+			time: slideTime / 2
+	
+	Utils.delay slideTime / 2, ->
+		item.animate
+			skewX: 0
+			animationOptions =
+				time: slideTime / 2
+
+hideSlices = () ->
+	for slice, i in sliceElArray
+		slice.stateSwitch 'right'
+
+# Slice animations
+# Uses random shuffle to randomize delay and timing for each slice
+animateSlices = (dir, state, contrast, cb) ->
+	pageTransitioning = true
+
+# 	Bring all slices to the front above shuffled page content
+	for slice, i in sliceElArray
+		slice.bringToFront()
+		
+	shuffledOrder = shuffleArray(sliceArray)
+	
+	for itemIndex, i in shuffledOrder
+		itemOuter = sliceElArray[itemIndex]
+		itemInner = sliceInnerArray[itemIndex]
+		
+		if contrast is 'dark'
+			itemInner.backgroundColor = '#1B1C26'
+		else
+			itemInner.backgroundColor = '#FBFCFC'
+		
+		slideTime = i / 10 + .2
+		kickoffDelay = i / 30
+		
+		animationOpts =
+			time: slideTime
+			delay: kickoffDelay
+		
+		rotateSlice(itemInner, slideTime, dir)
+		
+		if state is 'hide'
+			itemOuter.stateSwitch 'show'
+			
+			if dir is 'left'
+				itemOuter.animate 'left',
+					animationOptions = animationOpts
+			else if dir is 'right'
+				itemOuter.animate 'right',
+					animationOptions = animationOpts
+		
+		if state is 'show'
+			if dir is 'left'
+				itemOuter.stateSwitch 'right'
+			else if dir is 'right'
+				itemOuter.stateSwitch 'left'
+			
+			itemOuter.animate 'show',
+				animationOptions = animationOpts
+		
+# 		Run callback after last slice has completed animation
+		do (i) ->
+			if i == (shuffledOrder.length - 1)
+				totalSlideTime = slideTime + kickoffDelay
+				pageTransitioning = false
+				
+				Utils.delay totalSlideTime, ->
+					if cb
+						cb()
 	
 # Home page
 home.x = 0
@@ -242,171 +394,17 @@ animateProject = () ->
 	paginationBar.animate 'visible'
 
 
-# Slice Animation
-
-shuffleArray = (source) ->
-  # Arrays with < 2 elements do not shuffle well. Instead make it a noop.
-  return source unless source.length >= 2
-  # From the end of the list to the beginning, pick element `index`.
-  for index in [source.length-1..1]
-    # Choose random element `randomIndex` to the front of `index` to swap with.
-    randomIndex = Math.floor Math.random() * (index + 1)
-    # Swap `randomIndex` with `index`, using destructured assignment
-    [source[index], source[randomIndex]] = [source[randomIndex], source[index]]
-  source
-  
-# Overlay
-overlay = new Layer
-	width: page.width
-	height: page.height
-	x: 0
-	y: 0
-	backgroundColor: '#1B1C26'
-	
-overlay.states =
-	hidden:
-		opacity: 0
-	visible:
-		opacity: 1
-		
-canvas.addChild(overlay)
-
-overlay.stateSwitch 'hidden'
-
-# Slices setup
-sliceArray = [0..5]
-sliceInnerArray = []
-sliceElArray = []
-
-# Create slices
-for i in sliceArray
-	sliceHeight = Math.round(page.height / sliceArray.length)
-	
-	slice = new Layer
-		y: sliceHeight * i
-		x: 0
-		height: sliceHeight + 2
-		width: page.width
-		backgroundColor: 'transparent'
-		borderWidth: 0
-	
-	sliceInner = new Layer
-		height: slice.height
-		width: slice.width
-		
-	slice.states =
-		right:
-			x: slice.width
-		left:
-			x: -slice.width
-		show:
-			x: 0
-	
-	slice.stateSwitch 'right'
-		
-	slice.addChild(sliceInner)
-	
-	canvas.addChild(slice)
-	
-	sliceInner.x = 0
-	sliceInner.y = Align.center
-	
-	sliceInnerArray.push sliceInner
-	
-	sliceElArray.push slice
-
-# Rotates the slice
-rotateSlice = (item, slideTime, dir) ->
-	skewAmount = if dir is 'left' then 30 else -30
-	
-	item.originY = 1
-	
-	if dir is 'left'
-		item.originX = 0
-		
-	else if dir is 'right'
-		item.originX = 1
-	
-	item.animate
-		skewX: skewAmount
-		animationOptions =
-			time: slideTime / 2
-	
-	Utils.delay slideTime / 2, ->
-		item.animate
-			skewX: 0
-			animationOptions =
-				time: slideTime / 2
-
-# Slice animations
-# Uses random shuffle to randomize delay and timing for each slice
-animateSlices = (dir, state, contrast, cb) ->
-	pageTransitioning = true
-
-# 	Bring all slices to the front above shuffled page content
-	for slice, i in sliceElArray
-		slice.bringToFront()
-		
-	shuffledOrder = shuffleArray(sliceArray)
-	
-	if state is 'show'
-		overlay.animate 'visible'
-	else if state is 'hide'
-		overlay.animate 'hidden'
-	
-	for itemIndex, i in shuffledOrder
-		itemOuter = sliceElArray[itemIndex]
-		itemInner = sliceInnerArray[itemIndex]
-		
-		if contrast is 'dark'
-			itemInner.backgroundColor = '#1B1C26'
-		else
-			itemInner.backgroundColor = '#FBFCFC'
-		
-		slideTime = i / 10 + .3
-		kickoffDelay = i / 20
-		
-		animationOpts =
-			time: slideTime
-			delay: kickoffDelay
-		
-		rotateSlice(itemInner, slideTime, dir)
-		
-		if state is 'hide'
-			itemOuter.stateSwitch 'show'
-			
-			if dir is 'left'
-				itemOuter.animate 'left',
-					animationOptions = animationOpts
-			else if dir is 'right'
-				itemOuter.animate 'right',
-					animationOptions = animationOpts
-		
-		if state is 'show'
-			if dir is 'left'
-				itemOuter.stateSwitch 'right'
-			else if dir is 'right'
-				itemOuter.stateSwitch 'left'
-			
-			itemOuter.animate 'show',
-				animationOptions = animationOpts
-		
-# 		Run callback after last slice has completed animation
-		do (i) ->
-			if i == (shuffledOrder.length - 1)
-				pageTransitioning = false
-				Utils.delay slideTime + kickoffDelay, ->
-					if cb
-						cb()
-
-
 loadFirstProjectButton.on Events.MouseDown, ->
 	if pageTransitioning
 		return
 		
 	projectReset()
 		
-	animateSlices('left', 'show', 'light', animateProject)
+	animateSlices('left', 'show', 'light', () -> 
+		animateProject()
+		hideSlices()
+	)
+
 	homeAnimateOut()
 
 backToHomeButton.on Events.MouseDown, ->
@@ -418,6 +416,7 @@ backToHomeButton.on Events.MouseDown, ->
 	animateSlices('right', 'show', 'dark', () ->
 		projectReset()
 		showHome()
+		hideSlices()
 	)
 
 prevProject.on Events.MouseDown, ->
